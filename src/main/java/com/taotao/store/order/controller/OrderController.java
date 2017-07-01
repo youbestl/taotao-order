@@ -13,6 +13,7 @@ import com.taotao.store.order.pojo.Order;
 import com.taotao.store.order.pojo.PageResult;
 import com.taotao.store.order.pojo.ResultMsg;
 import com.taotao.store.order.service.OrderService;
+import org.springframework.web.servlet.ModelAndView;
 
 @RequestMapping("/order")
 @Controller
@@ -20,7 +21,8 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
-	
+
+
 	/**
 	 * 创建订单
 	 * @param json
@@ -31,8 +33,8 @@ public class OrderController {
 	public TaotaoResult createOrder(@RequestBody String json) {
 		return orderService.createOrder(json);
 	}
-	
-	
+
+
 	/**
 	 * 根据订单ID查询订单
 	 * @param orderId
@@ -57,7 +59,7 @@ public class OrderController {
 		return orderService.queryOrderByUserNameAndPage(buyerNick, page, count);
 	}
 
-	
+
 	/**
 	 * 修改订单状态
 	 * @param json
@@ -68,4 +70,7 @@ public class OrderController {
 	public ResultMsg changeOrderStatus(@RequestBody String json) {
 		return orderService.changeOrderStatus(json);
 	}
+
+
+
 }
